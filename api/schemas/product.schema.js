@@ -1,5 +1,4 @@
 const joi = require('joi')
-const { get } = require('../routes/products.router')
 
 const id = joi.string().uuid()
 const name = joi.string().min(3).max(15)
