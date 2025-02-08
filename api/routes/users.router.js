@@ -1,16 +1,16 @@
-const express = require('express');
+const express = require('express')
 
-const UserService = require('./../services/user.services');
-const validatorHandler = require('./../middlewares/validator.handler');
-const { updateUserSchema, createUserSchema, getUserSchema } = require('./../schemas/user.schema');
+const UserService = require('./../services/user.services')
+const validatorHandler = require('./../middlewares/validator.handler')
+const { updateUserSchema, createUserSchema, getUserSchema } = require('./../schemas/user.schema')
 
-const router = express.Router();
-const service = new UserService();
+const router = express.Router()
+const service = new UserService()
 
 router.get('/', async (req, res, next) => {
   try {
-    const users = await service.find();
-    res.json(users);
+    const users = await service.find()
+    res.json(users)
   } catch (error) {
     next(error);
   }
@@ -21,10 +21,10 @@ router.get('/:id',
   async (req, res, next) => {
     try {
       const { id } = req.params;
-      const category = await service.findOne(id);
-      res.json(category);
+      const category = await service.findOne(id)
+      res.json(category)
     } catch (error) {
-      next(error);
+      next(error)
     }
   }
 );
